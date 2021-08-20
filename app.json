@@ -3,7 +3,7 @@
     "logo": "https://telegra.ph/file/7618711bbdb9f03ed989e.jpg",
     "description": "UFO Music project allow you to stream music trought the telegram voice chat feature.",
     "keywords": ["music", "voice chat", "telegram"],
-    "repository": "https://github.com/SuSaleM/UFoVC.git",
+    "repository": "https://github.com/MSaleMD/UFoVC",
     "stack": "container",
     "env": {
         "SESSION_NAME": {
@@ -53,11 +53,11 @@
             "required": true
         },
         "SUDO_USERS": {
-            "description": "list id untuk daftar anggota sudo (pisahkan dengan spasi).",
+            "description": "list sudo",
             "required": true
         },
         "DURATION_LIMIT": {
-            "description": "max durasi untuk video yang diunduh (dalam menit).",
+            "description": "max",
             "required": true,
             "value": "60"
         },
@@ -67,14 +67,14 @@
             "value": "ENABLE"
         },
         "UPDATES_CHANNEL": {
-            "description": "isi dengan username channel kamu, jika tidak punya lewati saja",
+            "description": "تحديثاتــ سورس يــوفـــو !!!",
             "required": false,
-            "value": "xv00v"
+            "value": "WzUserBoT"
         },
         "GROUP_SUPPORT": {
-            "description": "isi dengan username grup kamu, jika tidak punya skip saja",
+            "description": "جروبــ الدعــم",
             "required": false,
-            "value": "xv00v"
+            "value": "WzSuPPort"
         }
     },
     "buildpacks": [
