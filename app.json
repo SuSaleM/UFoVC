@@ -1,8 +1,10 @@
 {
-    "name": "UFO Music Bot",
+    "name": "UFOVc",
     "logo": "https://telegra.ph/file/7618711bbdb9f03ed989e.jpg",
-    "description": "UFO Music project allow you to stream music trought the telegram voice chat feature.",
+    "description": "UFO Music Voice Chat.",
     "keywords": ["music", "voice chat", "telegram"],
+    "repository": "https://github.com/MSaleMD/UFoVC",
+    "stack": "container",
     "env": {
         "SESSION_NAME": {
             "description": "حط كود الجلســـة بتاعتــك !!",
