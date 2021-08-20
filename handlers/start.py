@@ -39,7 +39,7 @@ async def start_(client: Client, message: Message):
 
 ❓ **ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀʟʟ ғᴇᴀᴛᴜʀᴇ ᴏғ ᴛʜɪs ʙᴏᴛ, ᴊᴜsᴛ ᴛʏᴘᴇ /help**
 
-✂ **ɪ ᴡᴀs ᴍᴀᴅᴇ ʙʏ ᴀʀʏᴀ ᴢᴀᴋᴀʀɪᴀ ғᴏʀ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ ᴏɴ ᴠᴄɢ**
+✂ **ɪ ᴡᴀs ᴍᴀᴅᴇ ʙʏ ѕᴀʟᴇᴍ & ᴜғᴏ ғᴏʀ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ ᴏɴ ᴠᴄɢ**
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
