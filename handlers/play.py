@@ -1,4 +1,3 @@
-#SaLeM & UFO
 import os
 import json
 import ffmpeg
@@ -123,7 +122,7 @@ async def playlist(client, message):
     by = temp[0][1].mention(style="md")
     msg = "****الأغنيــة قيــد التشغيــل حاليًــا** {}".format(message.chat.title)
     msg += "\n• "+ now_playing
-    msg += "\n•  الطلــب "+by
+    msg += "\n•  تم الطلـب من قبــل  "+by
     temp.pop(0)
     if temp:
         msg += "\n\n"
@@ -132,7 +131,7 @@ async def playlist(client, message):
             name = song[0]
             usr = song[1].mention(style="md")
             msg += f"\n• {name}"
-            msg += f"\n•  الطلــب {usr}\n"
+            msg += f"\n•  تم الطلـب من قبــل  {usr}\n"
     await message.reply_text(msg)
 
 # ============================= Settings =========================================
@@ -141,10 +140,10 @@ def updated_stats(chat, queue, vol=100):
         stats = "إعداداتــ **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
-            stats += "الحــجم: {}%\n".format(vol)
-            stats += "الأغانــي فــي قائمــة الانتظــار: `{}`\n".format(len(que))
-            stats += "تشغيــل أغنيــة: **{}**\n".format(queue[0][0])
-            stats += " الطلــب: {}".format(queue[0][1].mention)
+            stats += "الحــجم : {}%\n".format(vol)
+            stats += "الأغانــي فــي قائمــة الانتظــار : `{}`\n".format(len(que))
+            stats += "يـتم بث الآن : **{}**\n".format(queue[0][0])
+            stats += " تم الطلـب من قبــل : {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -188,7 +187,7 @@ async def settings(client, message):
         else:
             await message.reply(stats, reply_markup=r_ply("play"))
     else:
-        await message.reply("**Please turn on the voice chat first.**")
+        await message.reply("**يرجــى تشغــيل المكالــمة الصوتيــة أولاً.**")
 
 
 @Client.on_message(
@@ -251,7 +250,7 @@ async def p_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Now playing** in {}".format(cb.message.chat.title)
+        msg = "**يــتم تشغــيل ** in {}".format(cb.message.chat.title)
         msg += "\n• " + now_playing
         msg += "\n• Req by " + by
         temp.pop(0)
@@ -291,7 +290,7 @@ async def m_cb(b, cb):
                 ) or (
                     callsmusic.pytgcalls.active_calls[chet_id] == "paused"
                 ):
-            await cb.answer("Assistant is not connected to voice chat!", show_alert=True)
+            await cb.answer("الحســاب المساعــد  لم يتصــل بعــد!", show_alert=True)
         else:
             callsmusic.pytgcalls.pause_stream(chet_id)
             
@@ -304,7 +303,7 @@ async def m_cb(b, cb):
             ) or (
                 callsmusic.pytgcalls.active_calls[chet_id] == "playing"
             ):
-                await cb.answer("Assistant is not connected to voice chat!", show_alert=True)
+                await cb.answer("الحســاب المساعــد  لم يتصــل بعــد!", show_alert=True)
         else:
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music resumed!")
@@ -321,7 +320,7 @@ async def m_cb(b, cb):
         by = temp[0][1].mention(style="md")
         msg = "**الأغنيــة قيــد التشغيــل حاليًــا** {}".format(cb.message.chat.title)
         msg += "\n• "+ now_playing
-        msg += "\n•  الطلــب "+by
+        msg += "\n•  تم الطلـب من قبــل  "+by
         temp.pop(0)
         if temp:
              msg += "\n\n"
@@ -330,7 +329,7 @@ async def m_cb(b, cb):
                  name = song[0]
                  usr = song[1].mention(style="md")
                  msg += f"\n• {name}"
-                 msg += f"\n•  الطلــب {usr}\n"
+                 msg += f"\n•  تم الطلـب من قبــل  {usr}\n"
         await cb.message.edit(msg)      
                       
     elif type_ == "resume":     
@@ -339,7 +338,7 @@ async def m_cb(b, cb):
             ) or (
                 callsmusic.pytgcalls.active_calls[chet_id] == "playing"
             ):
-                await cb.answer("Voice chat is not connected or already playing", show_alert=True)
+                await cb.answer("لا يوجــد مكالمــة صوتيــة أو تم تشــغيلها مسبقاً", show_alert=True)
         else:
             callsmusic.pytgcalls.resume_stream(chet_id)
             await cb.answer("Music resumed!")
@@ -350,7 +349,7 @@ async def m_cb(b, cb):
                 ) or (
                     callsmusic.pytgcalls.active_calls[chet_id] == "paused"
                 ):
-            await cb.answer("Voice chat is not connected or already paused", show_alert=True)
+            await cb.answer("لا يوجــد مكالمــة صوتيــة أو تم توقيفــها مسبقاً", show_alert=True)
         else:
             callsmusic.pytgcalls.pause_stream(chet_id)
             
@@ -387,7 +386,7 @@ async def m_cb(b, cb):
         if qeue:
             qeue.pop(0)
         if chet_id not in callsmusic.pytgcalls.active_calls:
-            await cb.answer("Assistant is not connected to voice chat!", show_alert=True)
+            await cb.answer("الحســاب المساعــد  لم يتصــل بعــد!", show_alert=True)
         else:
             callsmusic.queues.task_done(chet_id)
 
@@ -402,7 +401,7 @@ async def m_cb(b, cb):
                 await cb.answer("skipped")
                 await cb.message.edit((m_chat, qeue), reply_markup=r_ply(the_data))
                 await cb.message.reply_text(
-                    f"⫸ Skipped track\n⫸ Now playing : **{qeue[0][0]}**"
+                    f"⫸ تــم التخطــي\n⫸ الآن يتـم تشغيــل : **{qeue[0][0]}**"
                 )
 
     elif type_ == "leave":
@@ -413,9 +412,9 @@ async def m_cb(b, cb):
                 pass
 
             callsmusic.pytgcalls.leave_group_call(chet_id)
-            await cb.message.edit("⏹ **Music stopped!**")
+            await cb.message.edit("⏹ **تم الــعطيل!**")
         else:
-            await cb.answer("Assistant is not connected to voice chat!", show_alert=True)
+            await cb.answer("الحســاب المساعــد  لم يتصــل بعــد!", show_alert=True)
 
 
 @Client.on_message(command("play") & other_filters)
@@ -424,7 +423,7 @@ async def play(_, message: Message):
     global useer
     if message.chat.id in DISABLED_GROUPS:
         return    
-    lel = await message.reply("🔄 **Processing...**")
+    lel = await message.reply("🔄 **إنتـظر قليلاً...**")
     administrators = await get_administrators(message.chat)
     chid = message.chat.id
     try:
@@ -448,7 +447,7 @@ async def play(_, message: Message):
                     invitelink = await _.export_chat_invite_link(chid)
                 except:
                     await lel.edit(
-                        "<b>make me as admin first.</b>",
+                        "<b>إرفعنــي مشرف أولاً بصلاحيـات المطلوبــة.</b>",
                     )
                     return
                 try:
@@ -518,7 +517,7 @@ async def play(_, message: Message):
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/7618711bbdb9f03ed989e.jpg"
+        thumb_name = "https://telegra.ph/file/44378e2abee85d9ed5076.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -547,7 +546,7 @@ async def play(_, message: Message):
             views = results[0]["views"]
         except Exception as e:
             await lel.edit(
-                "**❌ Song not found.** please give a valid song name."
+                "**❌ لم يتـم العثــور على الإغنيــة.** يرجــى إرسال الإســم صحيــح."
             )
             print(str(e))
             return
@@ -576,10 +575,10 @@ async def play(_, message: Message):
         try:
           results = YoutubeSearch(query, max_results=6).to_dict()
         except:
-          await lel.edit("**Please give a song name you want to play !**")
+          await lel.edit("**يرجــى أن ترسل لــي إسم الاغنيــة !**")
         # veez project
         try:
-            toxxt = "⚡ __Choose a song to play:__\n\n"
+            toxxt = "⚡ __ إخــتر اغنيــة للتشغــيل:__\n\n"
             j = 0
             useer=user_name
             emojilist = ["1️⃣","2️⃣","3️⃣","4️⃣","5️⃣","6️⃣"]
@@ -631,7 +630,7 @@ async def play(_, message: Message):
                 views = results[0]["views"]
             except Exception as e:
                 await lel.edit(
-                "**❌ Song not found.** please give a valid song name."
+                "**❌ لم يتـم العثــور على الإغنيــة.** يرجــى إرسال الإســم صحيــح."
             )
                 print(str(e))
                 return
@@ -661,7 +660,7 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {message.from_user.mention}\n" \
+            caption=f"💡 **Track added to the queue**\n\n🏷 **الإسـم :** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **مطلوبــة مـن :** {message.from_user.mention}\n" \
                    +f"🔢 **At Position:** » `{position}` «",
             reply_markup=keyboard
         )
@@ -681,8 +680,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-                   +f"🎧 **Request by:** {message.from_user.mention}",
+            caption=f"🏷 **الإسـم :** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
+                   +f"🎧 **مطلوبــة مـن :** {message.from_user.mention}",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -698,7 +697,7 @@ async def lol_cb(b, cb):
     try:
         x,query,useer_id = typed_.split("|")      
     except:
-        await cb.message.edit("❌ Song not found")
+        await cb.message.edit("❌ لم يتـم العثــور على الإغنيــة")
         return
     useer_id = int(useer_id)
     if cb.from_user.id != useer_id:
@@ -764,7 +763,7 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"💡 **Track added to the queue**\n\n🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **Request by:** {r_by.mention}\n" \
+        caption=f"💡 **Track added to the queue**\n\n🏷 **الإسـم :** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **مطلوبــة مـن :** {r_by.mention}\n" \
                +f"🔢 **At Position:** » `{position}` «",
         reply_markup=keyboard,
         )
@@ -772,7 +771,7 @@ async def lol_cb(b, cb):
     else:
         que[chat_id] = []
         qeue = que.get(chat_id)
-        s_name = title
+        s_https://t.me/wzthon = title
         try:
             r_by = cb.message.reply_to_message.from_user
         except:
@@ -785,8 +784,8 @@ async def lol_cb(b, cb):
         await b.send_photo(
         chat_id,
         photo="final.png",
-        caption=f"🏷 **Name:** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-               +f"🎧 **Request by:** {r_by.mention}",
+        caption=f"🏷 **الإســم :** [{title[:35]}]({url})\n⏱ **Duration :** `{duration}`\n💡 **Status :** `Playing`\n" \
+               +f"🎧 **مطلـوبة مـن :** {r_by.mention}",
         reply_markup=keyboard,
         )
         os.remove("final.png")
