@@ -120,30 +120,30 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "**Lagu Yang Sedang dimainkan** di {}".format(message.chat.title)
+    msg = "****الأغنيــة قيــد التشغيــل حاليًــا** {}".format(message.chat.title)
     msg += "\n• "+ now_playing
-    msg += "\n• Atas permintaan "+by
+    msg += "\n•  الطلــب "+by
     temp.pop(0)
     if temp:
         msg += "\n\n"
-        msg += "**Antrian Lagu**"
+        msg += "**أغنيــة قائمــة الانتظــار**"
         for song in temp:
             name = song[0]
             usr = song[1].mention(style="md")
             msg += f"\n• {name}"
-            msg += f"\n• Atas permintaan {usr}\n"
+            msg += f"\n•  الطلــب {usr}\n"
     await message.reply_text(msg)
 
 # ============================= Settings =========================================
 def updated_stats(chat, queue, vol=100):
     if chat.id in callsmusic.pytgcalls.active_calls:
-        stats = "Pengaturan dari **{}**".format(chat.title)
+        stats = "إعداداتــ **{}**".format(chat.title)
         if len(que) > 0:
             stats += "\n\n"
-            stats += "Volume: {}%\n".format(vol)
-            stats += "Lagu dalam antrian: `{}`\n".format(len(que))
-            stats += "Sedang memutar lagu: **{}**\n".format(queue[0][0])
-            stats += "Atas permintaan: {}".format(queue[0][1].mention)
+            stats += "الحــجم: {}%\n".format(vol)
+            stats += "الأغانــي فــي قائمــة الانتظــار: `{}`\n".format(len(que))
+            stats += "تشغيــل أغنيــة: **{}**\n".format(queue[0][0])
+            stats += " الطلــب: {}".format(queue[0][1].mention)
     else:
         stats = None
     return stats
@@ -256,7 +256,7 @@ async def p_cb(b, cb):
         temp.pop(0)
         if temp:
             msg += "\n\n"
-            msg += "**Antrian Lagu**"
+            msg += "**أغنيــة قائمــة الانتظــار**"
             for song in temp:
                 name = song[0]
                 usr = song[1].mention(style="md")
@@ -318,18 +318,18 @@ async def m_cb(b, cb):
             temp.append(t)
         now_playing = temp[0][0]
         by = temp[0][1].mention(style="md")
-        msg = "**Lagu Yang Sedang dimainkan** di {}".format(cb.message.chat.title)
+        msg = "**الأغنيــة قيــد التشغيــل حاليًــا** {}".format(cb.message.chat.title)
         msg += "\n• "+ now_playing
-        msg += "\n• Atas permintaan "+by
+        msg += "\n•  الطلــب "+by
         temp.pop(0)
         if temp:
              msg += "\n\n"
-             msg += "**Antrian Lagu**"
+             msg += "**أغنيــة قائمــة الانتظــار**"
              for song in temp:
                  name = song[0]
                  usr = song[1].mention(style="md")
                  msg += f"\n• {name}"
-                 msg += f"\n• Atas permintaan {usr}\n"
+                 msg += f"\n•  الطلــب {usr}\n"
         await cb.message.edit(msg)      
                       
     elif type_ == "resume":     
@@ -463,8 +463,8 @@ async def play(_, message: Message):
                 except Exception:
                     # print(e)
                     await lel.edit(
-                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} tidak dapat bergabung dengan grup Anda karena banyaknya permintaan bergabung untuk userbot! Pastikan pengguna tidak dibanned dalam grup."
-                        f"\n\nAtau tambahkan @{ASSISTANT_NAME} secara manual ke Grup Anda dan coba lagi</b>",
+                        f"<b>⛑ Flood Wait Error ⛑\n{user.first_name} تأكد من عدم حظر المستخدم في المجموعــة."
+                        f"\n\n أضــف @{ASSISTANT_NAME} يدويًــا إلى مجموعاتك وحاول مرة أخــرى </b>",
                     )
     try:
         await USER.get_chat(chid)
@@ -503,7 +503,7 @@ async def play(_, message: Message):
     if audio:
         if round(audio.duration / 60) > DURATION_LIMIT:
             raise DurationLimitError(
-                f"❌ **Lagu dengan durasi lebih dari** `{DURATION_LIMIT}` **menit tidak dapat diputar!**"
+                f"❌ **لا يمــكن تشغيــل الأغانــي التــي تزيــد مدتهــا عــن** `{DURATION_LIMIT}` **دقيقـــة!**"
             )
         keyboard = InlineKeyboardMarkup(
             [
@@ -511,7 +511,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
                 ],
             ]
         )
@@ -558,7 +558,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
                 ],
             ]
         )
@@ -642,7 +642,7 @@ async def play(_, message: Message):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
                 ],
             ]
             )
@@ -722,7 +722,7 @@ async def lol_cb(b, cb):
             dur += (int(dur_arr[i]) * secmul)
             secmul *= 60
         if (dur / 60) > DURATION_LIMIT:
-             await cb.message.edit(f"❌ Lagu dengan durasi lebih dari `{DURATION_LIMIT}` menit tidak dapat diputar.")
+             await cb.message.edit(f"❌ لا يمـكن تشغيــل الأغانــي التي تزيــد مدتهــا عــن `{DURATION_LIMIT}` دقيقـــة.")
              return
     except:
         pass
@@ -741,7 +741,7 @@ async def lol_cb(b, cb):
                     InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
                     InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")
+                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
                 ],
             ]
     )
