@@ -771,7 +771,7 @@ async def lol_cb(b, cb):
     else:
         que[chat_id] = []
         qeue = que.get(chat_id)
-        s_https://t.me/wzthon = title
+        s_name = title
         try:
             r_by = cb.message.reply_to_message.from_user
         except:
