@@ -32,7 +32,7 @@
         "BG_IMAGE": {
             "description": "خلــفية",
             "required": false,
-            "value": "https://telegra.ph/file/7618711bbdb9f03ed989e.jpg"
+            "value": "https://telegra.ph/file/6d31d6b18722ce94521cb.jpg"
         },
         "THUMB_IMG": {
             "description": "سيبــها زي مهي عادي يبا -> bg_image",
