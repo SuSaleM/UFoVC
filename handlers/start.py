@@ -146,12 +146,6 @@ async def help_(client: Client, message: Message):
 \n🧙‍♂️ command for sudo users:
 \n/userbotleaveall - order the assistant to leave from all group
 /gcast - send a broadcast message trought the assistant
-\n🎊 **commands for fun:**
-\n/chika - check it by yourself
-/wibu - check it by yourself
-/asupan - check it by yourself
-/truth - check it by yourself
-/dare - check it by yourself
 </b>""",
         reply_markup=InlineKeyboardMarkup(
             [
