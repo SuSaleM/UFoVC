@@ -49,10 +49,10 @@ async def start_(client: Client, message: Message):
                         "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "📚 ᴄᴏᴍᴍᴀɴᴅs", url="https://t.me/WzUserBoT/10"
+                         "الاوامر", url="https://t.me/WzUserBoT/10"
                     ),
                     InlineKeyboardButton(
-                        "💝 ᴅᴏɴᴀᴛᴇ", url=f"https://t.me/{OWNER_NAME}")
+                        "الحساب المساعد", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
                         "👥 ᴏғғɪᴄɪᴀʟ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
@@ -61,7 +61,7 @@ async def start_(client: Client, message: Message):
                         "📣 ᴏғғɪᴄɪᴀʟ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")               
                  ],[
                     InlineKeyboardButton(
-                        "🧪", url="https://t.me/WzUserBoT/6"
+                        "🧪", url="https://t.me/or_33"
                     )
                 ]
             ]
