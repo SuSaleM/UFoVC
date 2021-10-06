@@ -120,9 +120,9 @@ async def playlist(client, message):
         temp.append(t)
     now_playing = temp[0][0]
     by = temp[0][1].mention(style="md")
-    msg = "****الأغنيــة قيــد التشغيــل حاليًــا** {}".format(message.chat.title)
+    msg = "♰ الاغنــيه قــيد التشغــيل ♰ {}".format(message.chat.title)
     msg += "\n• "+ now_playing
-    msg += "\n•  تم الطلـب من قبــل  "+by
+    msg += "\n♰ تم الطلــب من قبــل ♰ "+by
     temp.pop(0)
     if temp:
         msg += "\n\n"
@@ -156,16 +156,16 @@ def r_ply(type_):
     mar = InlineKeyboardMarkup(
         [
             [
-                InlineKeyboardButton("⏹", "leave"),
-                InlineKeyboardButton("⏸", "puse"),
-                InlineKeyboardButton("▶️", "resume"),
-                InlineKeyboardButton("⏭", "skip")
+                InlineKeyboardButton("♰", "خروج"),
+                InlineKeyboardButton("♰", "توقف موقت"),
+                InlineKeyboardButton("♰", "استئناف"),
+                InlineKeyboardButton("♰", "تخطي")
             ],
             [
-                InlineKeyboardButton("📖 PlayList", "playlist"),
+                InlineKeyboardButton("♰ لستــك", "playlist"),
             ],
             [       
-                InlineKeyboardButton("🗑 Close", "cls")
+                InlineKeyboardButton("♰ خروج", "cls")
             ]        
         ]
     )
@@ -365,18 +365,18 @@ async def m_cb(b, cb):
         marr = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("⏹", "leave"),
-                    InlineKeyboardButton("⏸", "puse"),
-                    InlineKeyboardButton("▶️", "resume"),
-                    InlineKeyboardButton("⏭", "skip")
+                    InlineKeyboardButton("♰", "خروج"),
+                    InlineKeyboardButton("♰", "توقف موقت"),
+                    InlineKeyboardButton("♰", "استئناف"),
+                    InlineKeyboardButton("♰", "تخطي")
                 
                 ],
                 [
-                    InlineKeyboardButton("📖 PlayList", "playlist"),
+                    InlineKeyboardButton("♰ لستـك", "playlist"),
                 
                 ],
                 [       
-                    InlineKeyboardButton("🗑 Close", "cls")
+                    InlineKeyboardButton("♰ خروج", "cls")
                 ]        
             ]
         )
@@ -508,16 +508,16 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("♰ عرض ♰", callback_data="menu"),
+                    InlineKeyboardButton("♰ توقف ♰", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
+                    InlineKeyboardButton("♰ قناتنا ♰", url=f"https://t.me/K4KK44")
                 ],
             ]
         )
         file_name = get_file_name(audio)
         title = file_name
-        thumb_name = "https://telegra.ph/file/44378e2abee85d9ed5076.jpg"
+        thumb_name = "https://telegra.ph/file/e1a208e5a16e32003a0d9.jpg"
         thumbnail = thumb_name
         duration = round(audio.duration / 60)
         views = "Locally added"
@@ -555,10 +555,10 @@ async def play(_, message: Message):
         keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("♰ عرض ♰", callback_data="menu"),
+                    InlineKeyboardButton("♰ توقف ♰", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
+                    InlineKeyboardButton("♰ قناتنا ♰", url=f"https://t.me/K4KK44")
                 ],
             ]
         )
@@ -639,10 +639,10 @@ async def play(_, message: Message):
             keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("♰ عرض ♰", callback_data="menu"),
+                    InlineKeyboardButton("♰ توقف ♰", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
+                    InlineKeyboardButton("♰ قناتنا ♰", url=f"https://t.me/wK4KK44")
                 ],
             ]
             )
@@ -660,8 +660,8 @@ async def play(_, message: Message):
         qeue.append(appendable)
         await message.reply_photo(
             photo="final.png",
-            caption=f"💡 **Track added to the queue**\n\n🏷 **الإسـم :** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n🎧 **مطلوبــة مـن :** {message.from_user.mention}\n" \
-                   +f"🔢 **At Position:** » `{position}` «",
+            caption=f"♰ **Track added to the queue**\n\n♰ **الإسـم :** [{title[:35]}]({url})\n♰ **Duration:** `{duration}`\n♰ **مطلوبــة مـن :** {message.from_user.mention}\n" \
+                   +f"♰ **At Position:** » `{position}` «",
             reply_markup=keyboard
         )
     else:
@@ -680,8 +680,8 @@ async def play(_, message: Message):
             return
         await message.reply_photo(
             photo="final.png",
-            caption=f"🏷 **الإسـم :** [{title[:35]}]({url})\n⏱ **Duration:** `{duration}`\n💡 **Status:** `Playing`\n" \
-                   +f"🎧 **مطلوبــة مـن :** {message.from_user.mention}",
+            caption=f"♰ **الإسـم :** [{title[:35]}]({url})\n♰ **Duration:** `{duration}`\n♰ **Status:** `Playing`\n" \
+                   +f"♰ **مطلوبــة مـن :** {message.from_user.mention}",
             reply_markup=keyboard
         )
         os.remove("final.png")
@@ -738,10 +738,10 @@ async def lol_cb(b, cb):
     keyboard = InlineKeyboardMarkup(
             [
                 [
-                    InlineKeyboardButton("🖱 ᴍᴇɴᴜ", callback_data="menu"),
-                    InlineKeyboardButton("🗑 ᴄʟᴏsᴇ", callback_data="cls"),
+                    InlineKeyboardButton("♰ عرض ♰", callback_data="menu"),
+                    InlineKeyboardButton("♰ توقف ♰", callback_data="cls"),
                 ],[
-                    InlineKeyboardButton("📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/wzthon")
+                    InlineKeyboardButton("♰ قناتنا ♰", url=f"https://t.me/K4KK44")
                 ],
             ]
     )
