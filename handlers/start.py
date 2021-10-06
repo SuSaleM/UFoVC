@@ -33,35 +33,27 @@ async def _human_time_duration(seconds):
 @Client.on_message(command("start") & filters.private & ~filters.edited)
 async def start_(client: Client, message: Message):
     await message.reply_text(
-        f"""<b>✨ **ᴡᴇʟᴄᴏᴍᴇ {message.from_user.first_name}** \n
-💭 **[{BOT_NAME}](https://t.me/{BOT_USERNAME}) ᴀʟʟᴏᴡ ʏᴏᴜ ᴛᴏ ᴘʟᴀʏ ᴍᴜsɪᴄ ᴏɴ ɢʀᴏᴜᴘs ᴛʜʀᴏᴜɢʜ ᴛʜᴇ ɴᴇᴡ ᴛᴇʟᴇɢʀᴀᴍ's ᴠᴏɪᴄᴇ ᴄʜᴀᴛs !**
-
-💡 **ғɪɴᴅ ᴏᴜᴛ ᴀʟʟ ᴛʜᴇ ʙᴏᴛ's ᴄᴏᴍᴍᴀɴᴅs ᴀɴᴅ ʜᴏᴡ ᴛʜᴇ ᴡᴏʀᴋ ʙʏ ᴄʟɪᴄᴋɪɴɢ ᴏɴ ᴛʜᴇ » 📚 ᴄᴏᴍᴍᴀɴᴅs ʙᴜᴛᴛᴏɴ !**
-
-❓ **ғᴏʀ ᴍᴏʀᴇ ɪɴғᴏʀᴍᴀᴛɪᴏɴ ᴀʙᴏᴜᴛ ᴀʟʟ ғᴇᴀᴛᴜʀᴇ ᴏғ ᴛʜɪs ʙᴏᴛ, ᴊᴜsᴛ ᴛʏᴘᴇ /help**
-
-✂ **ɪ ᴡᴀs ᴍᴀᴅᴇ ʙʏ ѕᴀʟᴇᴍ & ᴜғᴏ ғᴏʀ ᴘʟᴀʏɪɴɢ ᴍᴜsɪᴄ ᴏɴ ᴠᴄɢ**
-</b>""",
+        f"""<b>♰ ﭑهلا بك في بوت الاغاني ♰\nيمكنك اضافتي الى مجموعتك مع مساعدي والاستمتاع بل اغاني في اتصالك .\n♰ مطور السورس … @MPMMPP ♰</b>""",
         reply_markup=InlineKeyboardMarkup(
             [ 
                 [
                     InlineKeyboardButton(
-                        "➕ ᴀᴅᴅ ᴍᴇ ᴛᴏ ʏᴏᴜʀ ɢʀᴏᴜᴘ ➕", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
+                        "♰ ﭑضافته الى القروب ♰", url=f"https://t.me/{BOT_USERNAME}?startgroup=true")
                 ],[
                     InlineKeyboardButton(
-                         "📚 ᴄᴏᴍᴍᴀɴᴅs", url="https://t.me/WzUserBoT/10"
+                         "♰ قناتنا ♰", url="https://t.me/K4KK44"
                     ),
                     InlineKeyboardButton(
-                        "💝 ᴅᴏɴᴀᴛᴇ", url=f"https://t.me/{OWNER_NAME}")
+                         " ♰ مطورنا ♰", url=f"https://t.me/{OWNER_NAME}")
                 ],[
                     InlineKeyboardButton(
-                        "👥 ᴏғғɪᴄɪᴀʟ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "♰ قناتنا ² ♰", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 ᴏғғɪᴄɪᴀʟ ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}")               
+                        "♰ مطورنا ² ♰", url=f"https://t.me/{UPDATES_CHANNEL}")               
                  ],[
                     InlineKeyboardButton(
-                        "🧪", url="https://t.me/WzUserBoT/6"
+                        "🧪", url="https://t.me/K4KK44"
                     )
                 ]
             ]
@@ -81,10 +73,10 @@ async def start(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "☢ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "♰ قناتنا ♰", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "♰ مطورنا ♰", url=f"https://t.me/{OWNER_NAME}"
                     )
                 ]
             ]
@@ -99,7 +91,7 @@ async def help(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        text="✔ ʜᴏᴡ ᴛᴏ ᴜsᴇ ᴍᴇ", url=f"https://t.me/{BOT_USERNAME}?start=help"
+                        text="♰ تم تشغــيل البــوت ♰", url=f"https://t.me/{BOT_USERNAME}?start=help"
                     )
                 ]
             ]
@@ -152,15 +144,15 @@ async def help_(client: Client, message: Message):
             [
                 [
                     InlineKeyboardButton(
-                        "☣ ɢʀᴏᴜᴘ", url=f"https://t.me/{GROUP_SUPPORT}"
+                        "♰ قناتنا ² ♰", url=f"https://t.me/{GROUP_SUPPORT}"
                     ),
                     InlineKeyboardButton(
-                        "📣 ᴄʜᴀɴɴᴇʟ", url=f"https://t.me/{UPDATES_CHANNEL}"
+                        "♰ قناتنا ♰", url=f"https://t.me/{UPDATES_CHANNEL}"
                     )
                 ],
                 [
                     InlineKeyboardButton(
-                        "♞🏻‍💻 ᴅᴇᴠᴇʟᴏᴘᴇʀ", url=f"https://t.me/WzUserBoT/6"
+                        "♰ مطورنا ♰", url=f"https://t.me/MPMMPP"
                     )
                 ]
             ]
